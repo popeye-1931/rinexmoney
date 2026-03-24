@@ -1,0 +1,18 @@
+01-homepage-top-rbi-lender-claims.png
+- Homepage talks like Rinex is the lender and shows RBI-style trust signals, approval language, ratings, and volume claims.
+
+02-homepage-24x7-support-claim.png
+- Homepage says 24/7 Support.
+
+03-homepage-netbanking-credentials.png
+- Required Details section asks for PAN, Aadhaar, Netbanking Credentials, and Active Bank Account.
+
+04-homepage-footer-support-hours-and-links.png
+- Footer says support is only Mon-Sat, 9 AM to 7 PM, which conflicts with 24/7 Support.
+- Footer quick links do not show visible Privacy Policy, Terms, or Grievance pages.
+
+05-homepage-footer-platform-disclaimer.png
+- Footer disclaimer says Rinex is only a loan listing/comparison platform and not a lender, bank, or NBFC.
+
+06-login-manage-loan-emi.png
+- Login page says users can manage their loan and EMI schedule, which can overstate Rinex's role if servicing is actually handled by lending partners.

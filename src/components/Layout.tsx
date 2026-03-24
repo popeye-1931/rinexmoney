@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { companyProfile, navigation } from '../siteContent'
+import { imageReferences, navigation, siteMeta } from '../siteContent'
 
 function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -12,16 +12,17 @@ function Layout() {
   return (
     <div className="site-shell">
       <div className="top-note">
-        <span className="note-chip">Preview build</span>
-        Replace placeholder legal fields before public launch.
+        <span className="note-chip">Story Concept</span>
+        Visual references are credited and used as inspiration, not as personal family
+        photographs.
       </div>
 
       <header className="site-header">
         <NavLink className="brand-mark" to="/" onClick={closeMenu}>
-          <span className="brand-mark__crest">R</span>
+          <span className="brand-mark__crest">SJ</span>
           <span>
-            <strong>{companyProfile.brandName}</strong>
-            <small>{companyProfile.marketplaceLabel}</small>
+            <strong>{siteMeta.title}</strong>
+            <small>{siteMeta.tagline}</small>
           </span>
         </NavLink>
 
@@ -52,8 +53,8 @@ function Layout() {
               {item.label}
             </NavLink>
           ))}
-          <NavLink className="button button-primary nav-cta" to="/legal" onClick={closeMenu}>
-            Build trust stack
+          <NavLink className="button button-primary nav-cta" to="/family" onClick={closeMenu}>
+            Enter the home
           </NavLink>
         </nav>
       </header>
@@ -65,60 +66,56 @@ function Layout() {
       <footer className="site-footer">
         <section className="footer-card">
           <div>
-            <p className="eyebrow">Rinex launch notes</p>
-            <h2>Built for credibility before scale</h2>
-            <p className="muted">
-              This version is intentionally designed to feel premium without pretending
-              to be a bank, NBFC, regulator, or government-backed scheme.
-            </p>
+            <p className="eyebrow">About the project</p>
+            <h2>A warm family website built like a storybook.</h2>
+            <p className="muted">{siteMeta.footerNote}</p>
           </div>
           <div className="footer-links">
-            <NavLink to="/privacy-policy">Privacy Policy</NavLink>
-            <NavLink to="/terms-of-use">Terms of Use</NavLink>
-            <NavLink to="/partner-lenders">Partner Lenders</NavLink>
-            <NavLink to="/grievance-redressal">Grievance Redressal</NavLink>
+            {navigation.map((item) => (
+              <NavLink key={item.to} to={item.to}>
+                {item.label}
+              </NavLink>
+            ))}
           </div>
         </section>
 
         <section className="footer-grid">
           <article className="footer-panel">
-            <p className="eyebrow">Brand</p>
-            <h3>{companyProfile.brandName}</h3>
-            <p className="muted">{companyProfile.heroStatement}</p>
+            <p className="eyebrow">Household line</p>
+            <h3>{siteMeta.title}</h3>
+            <p className="muted">{siteMeta.householdLine}</p>
           </article>
 
           <article className="footer-panel">
-            <p className="eyebrow">Support</p>
-            <ul className="clean-list">
-              <li>{companyProfile.supportPhone}</li>
-              <li>{companyProfile.supportWindow}</li>
-              <li>{companyProfile.corporateEmail}</li>
+            <p className="eyebrow">Story notes</p>
+            <ul className="detail-list">
+              <li>Prayer woven gently into the day</li>
+              <li>Shared meals and shared responsibility</li>
+              <li>Sibling humor balancing serious duties</li>
             </ul>
           </article>
 
           <article className="footer-panel">
-            <p className="eyebrow">Legal profile</p>
-            <ul className="clean-list">
-              <li>{companyProfile.legalEntityName}</li>
-              <li>{companyProfile.registeredOffice}</li>
-              <li>{companyProfile.cin}</li>
-            </ul>
+            <p className="eyebrow">Image credits</p>
+            <div className="source-links">
+              {imageReferences.slice(0, 3).map((reference) => (
+                <a key={reference.href} href={reference.href} target="_blank" rel="noreferrer">
+                  {reference.title}
+                </a>
+              ))}
+            </div>
           </article>
 
           <article className="footer-panel">
-            <p className="eyebrow">Grievance officer</p>
-            <ul className="clean-list">
-              <li>{companyProfile.grievanceOfficerName}</li>
-              <li>{companyProfile.grievanceOfficerEmail}</li>
-              <li>{companyProfile.grievanceOfficerPhone}</li>
-            </ul>
+            <p className="eyebrow">Visual tone</p>
+            <p className="muted">
+              Earthy colors, neighborhood textures, tea-time stillness, and soft arch
+              shapes keep the whole experience rooted in warmth and home.
+            </p>
           </article>
         </section>
 
-        <p className="footer-meta">
-          Last content framework update: {companyProfile.lastUpdated}. Replace placeholder
-          entries and validate every public claim before launch.
-        </p>
+        <p className="footer-meta">Last updated: {siteMeta.lastUpdated}</p>
       </footer>
     </div>
   )
