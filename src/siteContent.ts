@@ -25,6 +25,19 @@ export type StoryChapter = {
   to: string
 }
 
+export type CartoonStory = {
+  name: string
+  title: string
+  hook: string
+  story: string
+  scene: string
+  palette: string
+  accent: string
+  frameLabel: string
+  imageSrc: string
+  imageAlt: string
+}
+
 export type FamilyGroup = {
   title: string
   summary: string
@@ -77,8 +90,8 @@ export const siteMeta = {
   householdLine:
     'Salim (57), Julekha (51), Roshan (31), Rashida (30), Haider (28), Sadik (25), Alfaz (24), Abid (22), and Rida (12).',
   footerNote:
-    'The homepage and family page now use your real family photographs, while the moments page still includes a few credited reference images from Pexels for storytelling mood.',
-  lastUpdated: 'March 24, 2026',
+    'The homepage and family page now use your real family photographs, the story portraits chapter turns them into a playful comic-style experience, and the moments page still includes a few credited reference images from Pexels for storytelling mood.',
+  lastUpdated: 'March 26, 2026',
 }
 
 export const familyGroupPhoto = {
@@ -89,6 +102,7 @@ export const familyGroupPhoto = {
 export const navigation: NavItem[] = [
   { label: 'Home', to: '/' },
   { label: 'Family', to: '/family' },
+  { label: 'Story Portraits', to: '/story-portraits' },
   { label: 'Daily Life', to: '/daily-life' },
   { label: 'Moments', to: '/moments' },
 ]
@@ -109,13 +123,20 @@ export const chapterCards: StoryChapter[] = [
   },
   {
     eyebrow: 'Chapter two',
+    title: 'See the cartoon stories',
+    description:
+      'Watch the family step into a more playful world where each person becomes the hero of a warm illustrated chapter.',
+    to: '/story-portraits',
+  },
+  {
+    eyebrow: 'Chapter three',
     title: 'Walk through one ordinary day',
     description:
       'Follow the rhythm from Fajr to late-night quiet: tea, school bags, errands, shared meals, and the comfort of everyone returning home.',
     to: '/daily-life',
   },
   {
-    eyebrow: 'Chapter three',
+    eyebrow: 'Chapter four',
     title: 'Hold on to the little moments',
     description:
       'Explore sibling bonds, gentle family habits, and a moodboard of visual references that give the whole site its warmth.',
@@ -250,6 +271,137 @@ export const familyMembers: FamilyMember[] = [
     chapter: 'Her laughter keeps the whole family close to wonder.',
     imageSrc: ridaPhoto,
     imageAlt: 'Portrait of Rida.',
+  },
+]
+
+const findMember = (name: string) => familyMembers.find((member) => member.name === name)!
+
+export const cartoonStories: CartoonStory[] = [
+  {
+    name: 'Salim',
+    title: 'Guardian of the Front Door',
+    hook:
+      'In the cartoon chapter, Salim becomes the calm protector whose presence makes every room feel secure.',
+    story:
+      'He is drawn like the dependable elder of the house: grounded, strong, and quietly watching over everyone else before they even notice what they need.',
+    scene: 'Morning discipline and family protection',
+    palette: 'Mint, sand, and deep cedar',
+    accent: '#3a7d6b',
+    frameLabel: 'Chapter of strength',
+    imageSrc: findMember('Salim').imageSrc,
+    imageAlt: findMember('Salim').imageAlt,
+  },
+  {
+    name: 'Julekha',
+    title: 'Queen of Warm Tea and Gentle Duas',
+    hook:
+      'Julekha becomes the heart of the storybook home, carrying softness, hospitality, and quiet prayer into every scene.',
+    story:
+      'Her portrait feels like comfort itself: the person who remembers, prepares, reassures, and somehow keeps the emotional balance of the whole house intact.',
+    scene: 'Kitchen warmth, care, and prayerful calm',
+    palette: 'Peach, gold, and soft rose',
+    accent: '#d7836d',
+    frameLabel: 'Chapter of comfort',
+    imageSrc: findMember('Julekha').imageSrc,
+    imageAlt: findMember('Julekha').imageAlt,
+  },
+  {
+    name: 'Roshan',
+    title: 'Keeper of Family Memory',
+    hook:
+      'Roshan becomes the one who carries the family timeline, the remembered stories, and the older responsibilities.',
+    story:
+      'In this illustrated version, Roshan feels like the thoughtful senior figure who connects past and present and helps everyone stay rooted while life keeps moving.',
+    scene: 'Remembering, guiding, and holding the line',
+    palette: 'Sky blue, walnut, and ivory',
+    accent: '#5786c7',
+    frameLabel: 'Chapter of memory',
+    imageSrc: findMember('Roshan').imageSrc,
+    imageAlt: findMember('Roshan').imageAlt,
+  },
+  {
+    name: 'Rashida',
+    title: 'Grace of the Inner Rooms',
+    hook:
+      'Rashida becomes the gentle grace note in the family story, making crowded spaces feel calmer and more beautiful.',
+    story:
+      'Her cartoon-story portrait leans into steadiness and elegance, showing someone whose care is quiet but changes the whole feeling of a room.',
+    scene: 'Care, poise, and soft family strength',
+    palette: 'Plum, silver, and cream',
+    accent: '#7a5ea8',
+    frameLabel: 'Chapter of grace',
+    imageSrc: findMember('Rashida').imageSrc,
+    imageAlt: findMember('Rashida').imageAlt,
+  },
+  {
+    name: 'Haider',
+    title: 'The Camera-Eyed Brother',
+    hook:
+      'Haider becomes the creative hero of the house, a brother who carries both family loyalty and a confident screen presence.',
+    story:
+      'This version frames him like a modern family character: dependable at home, composed in public, and always ready to step into a bold scene with style.',
+    scene: 'Creative shoots, confidence, and brotherhood',
+    palette: 'Indigo, charcoal, and sunset bronze',
+    accent: '#4656a8',
+    frameLabel: 'Chapter of confidence',
+    imageSrc: findMember('Haider').imageSrc,
+    imageAlt: findMember('Haider').imageAlt,
+  },
+  {
+    name: 'Sadik',
+    title: 'Collector of Little Stories',
+    hook:
+      'Sadik becomes the observer character, the one who notices the details everyone else almost misses.',
+    story:
+      'His story portrait feels curious and alive, like someone who stands between tradition and the present moment and turns ordinary family life into something memorable.',
+    scene: 'Observation, humor, and new ideas',
+    palette: 'Amber, cream, and forest green',
+    accent: '#b27a2f',
+    frameLabel: 'Chapter of wonder',
+    imageSrc: findMember('Sadik').imageSrc,
+    imageAlt: findMember('Sadik').imageAlt,
+  },
+  {
+    name: 'Alfaz',
+    title: 'Starter of Smiles',
+    hook:
+      'Alfaz becomes the energy in the hallway, the one whose smile and teasing keep the house bright.',
+    story:
+      'In the cartoon-story treatment, he reads like the character who can break tension, restart laughter, and pull everyone back into the warmth of family.',
+    scene: 'Banter, laughter, and quick affection',
+    palette: 'Mustard, cobalt, and warm white',
+    accent: '#d59a22',
+    frameLabel: 'Chapter of laughter',
+    imageSrc: findMember('Alfaz').imageSrc,
+    imageAlt: findMember('Alfaz').imageAlt,
+  },
+  {
+    name: 'Abid',
+    title: 'The Young Flame',
+    hook:
+      'Abid becomes the youthful spark of the older siblings, balancing responsibility with movement and optimism.',
+    story:
+      'His illustrated chapter presents him as the bright younger-brother figure who is growing into responsibility without losing his easy warmth and energy.',
+    scene: 'Momentum, youth, and family pride',
+    palette: 'Ivory, fern, and warm bronze',
+    accent: '#4f9d6a',
+    frameLabel: 'Chapter of momentum',
+    imageSrc: findMember('Abid').imageSrc,
+    imageAlt: findMember('Abid').imageAlt,
+  },
+  {
+    name: 'Rida',
+    title: 'Little Moon of the Home',
+    hook:
+      'Rida becomes the youngest star of the family story, carrying innocence, curiosity, and a soft brightness.',
+    story:
+      'Her story portrait is gentle and magical, built around the feeling that childhood keeps the entire house connected to wonder, hope, and tenderness.',
+    scene: 'Wonder, school days, and gentle light',
+    palette: 'Pistachio, pearl, and moon white',
+    accent: '#8bbf6d',
+    frameLabel: 'Chapter of wonder',
+    imageSrc: findMember('Rida').imageSrc,
+    imageAlt: findMember('Rida').imageAlt,
   },
 ]
 
